@@ -212,6 +212,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
