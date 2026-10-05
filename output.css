@@ -23,6 +23,7 @@
     --color-amber-900: oklch(41.4% 0.112 45.904);
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-green-300: oklch(87.1% 0.15 154.449);
     --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-cyan-500: oklch(71.5% 0.143 215.221);
@@ -338,6 +339,9 @@
   }
   .h-960 {
     height: calc(var(--spacing) * 960);
+  }
+  .h-full {
+    height: 100%;
   }
   .h-screen {
     height: 100vh;
@@ -735,20 +739,11 @@
     }
   }
   @media (hover: hover) {
-    .group-hover\:bg-black:is(:where(.group):hover *) {
-      background-color: var(--color-black);
-    }
     .group-hover\:bg-red-300:is(:where(.group):hover *) {
       background-color: var(--color-red-300);
     }
-    .group-hover\:bg-zinc-300:is(:where(.group):hover *) {
-      background-color: var(--color-zinc-300);
-    }
     .group-hover\:bg-zinc-500:is(:where(.group):hover *) {
       background-color: var(--color-zinc-500);
-    }
-    .group-hover\:bg-zinc-800:is(:where(.group):hover *) {
-      background-color: var(--color-zinc-800);
     }
     .group-hover\:text-white:is(:where(.group):hover *) {
       color: var(--color-white);
@@ -771,6 +766,41 @@
   }
   .active\:bg-red-500:active {
     background-color: var(--color-red-500);
+  }
+  @media (width >= 40rem) {
+    .sm\:bg-orange-400 {
+      background-color: var(--color-orange-400);
+    }
+  }
+  @media (width >= 48rem) {
+    .md\:bg-amber-300 {
+      background-color: var(--color-amber-300);
+    }
+    .md\:text-9xl {
+      font-size: var(--text-9xl);
+      line-height: var(--tw-leading, var(--text-9xl--line-height));
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:bg-green-300 {
+      background-color: var(--color-green-300);
+    }
+    .lg\:text-6xl {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+  }
+  @media (width >= 80rem) {
+    .xl\:text-7xl {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  @media (width >= 96rem) {
+    .\32 xl\:text-8xl {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
   }
 }
 @property --tw-border-style {
