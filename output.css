@@ -31,10 +31,12 @@
     --color-cyan-500: oklch(71.5% 0.143 215.221);
     --color-cyan-900: oklch(39.8% 0.07 227.392);
     --color-blue-50: oklch(97% 0.014 254.604);
+    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-blue-800: oklch(42.4% 0.199 265.638);
+    --color-blue-900: oklch(37.9% 0.146 265.522);
     --color-pink-100: oklch(94.8% 0.028 342.258);
     --color-pink-200: oklch(89.9% 0.061 343.231);
     --color-pink-300: oklch(82.3% 0.12 346.018);
@@ -45,12 +47,13 @@
     --color-pink-800: oklch(45.9% 0.187 3.815);
     --color-pink-900: oklch(40.8% 0.153 2.432);
     --color-pink-950: oklch(28.4% 0.109 3.907);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-zinc-300: oklch(87.1% 0.006 286.286);
     --color-zinc-500: oklch(55.2% 0.016 285.938);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-3xs: 16rem;
-    --container-xs: 20rem;
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
@@ -303,6 +306,10 @@
     width: calc(var(--spacing) * 22);
     height: calc(var(--spacing) * 22);
   }
+  .size-32 {
+    width: calc(var(--spacing) * 32);
+    height: calc(var(--spacing) * 32);
+  }
   .size-50 {
     width: calc(var(--spacing) * 50);
     height: calc(var(--spacing) * 50);
@@ -314,6 +321,10 @@
   .size-fit {
     width: fit-content;
     height: fit-content;
+  }
+  .size-full {
+    width: 100%;
+    height: 100%;
   }
   .h-1 {
     height: var(--spacing);
@@ -378,29 +389,29 @@
   .columns-1 {
     columns: 1;
   }
-  .columns-2 {
-    columns: 2;
-  }
-  .columns-3 {
-    columns: 3;
-  }
   .columns-3xs {
     columns: var(--container-3xs);
-  }
-  .columns-4 {
-    columns: 4;
   }
   .columns-5 {
     columns: 5;
   }
-  .columns-xs {
-    columns: var(--container-xs);
-  }
   .flex-col {
     flex-direction: column;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  .content-start {
+    align-content: flex-start;
+  }
   .items-center {
     align-items: center;
+  }
+  .justify-around {
+    justify-content: space-around;
+  }
+  .justify-between {
+    justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
@@ -410,6 +421,9 @@
   }
   .gap-0 {
     gap: 0px;
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -439,6 +453,9 @@
   .bg-blue-50 {
     background-color: var(--color-blue-50);
   }
+  .bg-blue-300 {
+    background-color: var(--color-blue-300);
+  }
   .bg-blue-400 {
     background-color: var(--color-blue-400);
   }
@@ -448,11 +465,20 @@
   .bg-blue-700 {
     background-color: var(--color-blue-700);
   }
+  .bg-blue-900 {
+    background-color: var(--color-blue-900);
+  }
   .bg-cyan-500 {
     background-color: var(--color-cyan-500);
   }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
   .bg-gray-700 {
     background-color: var(--color-gray-700);
+  }
+  .bg-green-300 {
+    background-color: var(--color-green-300);
   }
   .bg-green-400 {
     background-color: var(--color-green-400);
@@ -490,6 +516,9 @@
   .bg-pink-950 {
     background-color: var(--color-pink-950);
   }
+  .bg-red-300 {
+    background-color: var(--color-red-300);
+  }
   .bg-red-400 {
     background-color: var(--color-red-400);
   }
@@ -499,8 +528,14 @@
   .bg-red-700 {
     background-color: var(--color-red-700);
   }
+  .bg-yellow-300 {
+    background-color: var(--color-yellow-300);
+  }
   .bg-yellow-700 {
     background-color: var(--color-yellow-700);
+  }
+  .bg-zinc-300 {
+    background-color: var(--color-zinc-300);
   }
   .bg-gradient-to-b {
     --tw-gradient-position: to bottom in oklab;
@@ -806,8 +841,14 @@
     background-color: var(--color-red-500);
   }
   @media (width >= 40rem) {
+    .sm\:flex {
+      display: flex;
+    }
     .sm\:columns-2 {
       columns: 2;
+    }
+    .sm\:flex-row {
+      flex-direction: row;
     }
     .sm\:bg-orange-400 {
       background-color: var(--color-orange-400);
@@ -826,9 +867,6 @@
     }
   }
   @media (width >= 64rem) {
-    .lg\:columns-3 {
-      columns: 3;
-    }
     .lg\:columns-4 {
       columns: 4;
     }
