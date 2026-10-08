@@ -29,4 +29,8 @@
      .link a{
         @apply underline mt-auto text-blue-300 hover:text-blue-500
     }
+
+    .img-gallary{
+        @apply w-80 rounded pl-2  hover:scale-110 transition-transform duration-1000 hover:brightness-125
+    }
 }
