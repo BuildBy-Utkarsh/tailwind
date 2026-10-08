@@ -73,6 +73,8 @@
     --blur-md: 12px;
     --blur-lg: 16px;
     --blur-2xl: 40px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -262,6 +264,9 @@
       max-width: 96rem;
     }
   }
+  .m-1 {
+    margin: var(--spacing);
+  }
   .m-4 {
     margin: calc(var(--spacing) * 4);
   }
@@ -270,6 +275,12 @@
   }
   .m-6 {
     margin: calc(var(--spacing) * 6);
+  }
+  .m-10 {
+    margin: calc(var(--spacing) * 10);
+  }
+  .m-15 {
+    margin: calc(var(--spacing) * 15);
   }
   .m-32 {
     margin: calc(var(--spacing) * 32);
@@ -286,14 +297,26 @@
   .mr-5 {
     margin-right: calc(var(--spacing) * 5);
   }
+  .ml-5 {
+    margin-left: calc(var(--spacing) * 5);
+  }
   .ml-11 {
     margin-left: calc(var(--spacing) * 11);
+  }
+  .ml-15 {
+    margin-left: calc(var(--spacing) * 15);
+  }
+  .ml-50 {
+    margin-left: calc(var(--spacing) * 50);
   }
   .block {
     display: block;
   }
   .flex {
     display: flex;
+  }
+  .grid {
+    display: grid;
   }
   .table {
     display: table;
@@ -343,6 +366,9 @@
   }
   .h-50 {
     height: calc(var(--spacing) * 50);
+  }
+  .h-90 {
+    height: calc(var(--spacing) * 90);
   }
   .h-95 {
     height: calc(var(--spacing) * 95);
@@ -395,6 +421,9 @@
   .columns-5 {
     columns: 5;
   }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -406,9 +435,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .justify-around {
-    justify-content: space-around;
   }
   .justify-between {
     justify-content: space-between;
@@ -422,12 +448,18 @@
   .gap-0 {
     gap: 0px;
   }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
+  .gap-1 {
+    gap: var(--spacing);
+  }
+  .rounded {
+    border-radius: 0.25rem;
   }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-red-700 {
+    border-color: var(--color-red-700);
   }
   .bg-amber-200 {
     background-color: var(--color-amber-200);
@@ -805,6 +837,24 @@
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-1000 {
+    --tw-duration: 1000ms;
+    transition-duration: 1000ms;
+  }
+  .duration-1700 {
+    --tw-duration: 1700ms;
+    transition-duration: 1700ms;
+  }
   .text-shadow-cyan-900 {
     --tw-text-shadow-color: oklch(39.8% 0.07 227.392);
     @supports (color: color-mix(in lab, red, red)) {
@@ -821,6 +871,23 @@
     .group-hover\:text-white:is(:where(.group):hover *) {
       color: var(--color-white);
     }
+    .hover\:scale-125:hover {
+      --tw-scale-x: 125%;
+      --tw-scale-y: 125%;
+      --tw-scale-z: 125%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .hover\:scale-x-150:hover {
+      --tw-scale-x: 150%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .hover\:scale-y-90:hover {
+      --tw-scale-y: 90%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+    .hover\:rotate-180:hover {
+      rotate: 180deg;
+    }
     .hover\:bg-amber-700:hover {
       background-color: var(--color-amber-700);
     }
@@ -830,8 +897,14 @@
     .hover\:bg-blue-800:hover {
       background-color: var(--color-blue-800);
     }
+    .hover\:bg-blue-900:hover {
+      background-color: var(--color-blue-900);
+    }
     .hover\:p-10:hover {
       padding: calc(var(--spacing) * 10);
+    }
+    .hover\:opacity-5:hover {
+      opacity: 5%;
     }
   }
   .focus\:bg-amber-400:focus {
@@ -841,9 +914,6 @@
     background-color: var(--color-red-500);
   }
   @media (width >= 40rem) {
-    .sm\:flex {
-      display: flex;
-    }
     .sm\:columns-2 {
       columns: 2;
     }
@@ -857,6 +927,9 @@
   @media (width >= 48rem) {
     .md\:columns-3 {
       columns: 3;
+    }
+    .md\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
     .md\:bg-amber-300 {
       background-color: var(--color-amber-300);
@@ -1065,6 +1138,10 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-text-shadow-color {
   syntax: "*";
   inherits: false;
@@ -1073,6 +1150,21 @@
   syntax: "<percentage>";
   inherits: false;
   initial-value: 100%;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
@@ -1116,8 +1208,12 @@
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-duration: initial;
       --tw-text-shadow-color: initial;
       --tw-text-shadow-alpha: 100%;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
     }
   }
 }
