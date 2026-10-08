@@ -51,10 +51,13 @@
     --color-pink-800: oklch(45.9% 0.187 3.815);
     --color-pink-900: oklch(40.8% 0.153 2.432);
     --color-pink-950: oklch(28.4% 0.109 3.907);
+    --color-slate-100: oklch(96.8% 0.007 247.896);
+    --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-zinc-300: oklch(87.1% 0.006 286.286);
     --color-zinc-500: oklch(55.2% 0.016 285.938);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-3xs: 16rem;
@@ -272,6 +275,9 @@
       max-width: 96rem;
     }
   }
+  .m-2 {
+    margin: calc(var(--spacing) * 2);
+  }
   .m-4 {
     margin: calc(var(--spacing) * 4);
   }
@@ -351,10 +357,6 @@
     width: calc(var(--spacing) * 96);
     height: calc(var(--spacing) * 96);
   }
-  .size-100 {
-    width: calc(var(--spacing) * 100);
-    height: calc(var(--spacing) * 100);
-  }
   .size-fit {
     width: fit-content;
     height: fit-content;
@@ -404,9 +406,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-12 {
-    width: calc(var(--spacing) * 12);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -498,6 +497,9 @@
   }
   .border-red-700 {
     border-color: var(--color-red-700);
+  }
+  .border-slate-800 {
+    border-color: var(--color-slate-800);
   }
   .bg-amber-200 {
     background-color: var(--color-amber-200);
@@ -950,6 +952,9 @@
     .hover\:bg-blue-900:hover {
       background-color: var(--color-blue-900);
     }
+    .hover\:bg-slate-100:hover {
+      background-color: var(--color-slate-100);
+    }
     .hover\:p-10:hover {
       padding: calc(var(--spacing) * 10);
     }
@@ -1020,6 +1025,24 @@
     .\32 xl\:text-8xl {
       font-size: var(--text-8xl);
       line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .dark\:text-black {
+      color: var(--color-black);
+    }
+  }
+}
+@layer components {
+  .btn-primary {
+    border-radius: 0.25rem;
+    background-color: var(--color-blue-600);
+    padding: calc(var(--spacing) * 2);
+    color: var(--color-white);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-blue-800);
+      }
     }
   }
 }
